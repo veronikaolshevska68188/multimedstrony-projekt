@@ -59,3 +59,21 @@ header img {
     object-fit: cover;
     border-radius: 50%;
 }
+
+.error {
+    color: #7d2e53;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+input.error-border,
+textarea.error-border {
+    border: 2px solid #7d2e53;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+}
