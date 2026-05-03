@@ -77,3 +77,30 @@ form.addEventListener("submit", function (e) {
         form.reset();
     }
 });
+
+fetch("data.json")
+  .then(response => response.json())
+  .then(data => {
+
+    const skillsList = document.getElementById("skillsList68188");
+    const projectsList = document.getElementById("projectsList68188");
+
+    // UMIEJĘTNOŚCI
+    data.skills.forEach(skill => {
+      const li = document.createElement("li");
+      li.textContent = skill;
+      skillsList.appendChild(li);
+    });
+
+    // PROJEKTY
+    data.projects.forEach(project => {
+      const li = document.createElement("li");
+
+      li.innerHTML = `${project.name}: 
+        <a href="${project.link}" target="_blank">${project.link}</a>`;
+
+      projectsList.appendChild(li);
+    });
+
+  })
+  .catch(error => console.error("Błąd:", error));

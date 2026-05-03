@@ -1,0 +1,20 @@
+{
+    "skills": [
+      "Montaż wideo w CapCut",
+      "Tworzenie contentu na Instagram i TikTok",
+      "Nagrywanie materiałów video i zdjęć",
+      "Prowadzenie profili social media",
+      "Analiza statystyk",
+      "Planowanie contentu"
+    ],
+    "projects": [
+      {
+        "name": "Instagram barbershop",
+        "link": "https://instagram.com/"
+      },
+      {
+        "name": "Portfolio content",
+        "link": "https://pl.pinterest.com/"
+      }
+    ]
+  }
