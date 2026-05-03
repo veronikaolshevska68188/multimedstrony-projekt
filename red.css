@@ -79,8 +79,8 @@ textarea.error-border {
     border: 2px solid #ff0077;
 }
 
-form input,
-form textarea {
+input,
+textarea {
     width: 100%;
     margin-bottom: 5px;
     padding: 5px;

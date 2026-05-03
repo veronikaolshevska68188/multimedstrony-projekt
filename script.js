@@ -85,14 +85,14 @@ fetch("data.json")
     const skillsList = document.getElementById("skillsList68188");
     const projectsList = document.getElementById("projectsList68188");
 
-    // UMIEJĘTNOŚCI
+    // UMIEJĘTNOŚCI JSON
     data.skills.forEach(skill => {
       const li = document.createElement("li");
       li.textContent = skill;
       skillsList.appendChild(li);
     });
 
-    // PROJEKTY
+    // PROJEKTY JSON
     data.projects.forEach(project => {
       const li = document.createElement("li");
 
@@ -104,3 +104,47 @@ fetch("data.json")
 
   })
   .catch(error => console.error("Błąd:", error));
+
+  // DODAWANIE NOTATKI
+
+const noteInput = document.getElementById("noteInput");
+const addNoteBtn = document.getElementById("addNoteBtn");
+const notesList = document.getElementById("notesList");
+
+let notes = JSON.parse(localStorage.getItem("notes")) || [];
+
+function renderNotes() {
+    notesList.innerHTML = "";
+
+    notes.forEach((note, index) => {
+        const li = document.createElement("li");
+        li.textContent = note;
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "❌";
+        deleteBtn.style.marginLeft = "10px";
+
+        deleteBtn.addEventListener("click", () => {
+            notes.splice(index, 1);
+            localStorage.setItem("notes", JSON.stringify(notes));
+            renderNotes();
+        });
+
+        li.appendChild(deleteBtn);
+        notesList.appendChild(li);
+    });
+}
+
+addNoteBtn.addEventListener("click", () => {
+    const value = noteInput.value.trim();
+
+    if (value === "") return;
+
+    notes.push(value);
+    localStorage.setItem("notes", JSON.stringify(notes));
+
+    noteInput.value = "";
+    renderNotes();
+});
+
+renderNotes();
